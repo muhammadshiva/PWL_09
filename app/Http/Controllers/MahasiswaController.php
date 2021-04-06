@@ -70,8 +70,18 @@ class MahasiswaController extends Controller
             'jurusan' => 'required',
         ]);
 
-        // Fungsi eloquent untuk menambah data 
-        Mahasiswa::create($request->all());
+        $mahasiswa = new Mahasiswa;
+        $mahasiswa->nim = $request->get('nim');
+        $mahasiswa->nama = $request->get('nama');
+        $mahasiswa->jurusan = $request->get('jurusan');
+        $mahasiswa->save();
+
+        $kelas = new Kelas;
+        $kelas->id = $request->get('Kelas');
+
+        // Fungsi eloquent untuk menambah data dengan relasi belongsTo
+        $mahasiswa->kelas()->associate($kelas);
+        $mahasiswa->save();
 
         //Jika data berhasil ditambahkan, akan kembali ke halaman utama 
         return redirect()->route('mahasiswa.index')
