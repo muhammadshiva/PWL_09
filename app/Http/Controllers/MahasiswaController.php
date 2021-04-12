@@ -74,10 +74,10 @@ class MahasiswaController extends Controller
         $mahasiswa->nim = $request->get('nim');
         $mahasiswa->nama = $request->get('nama');
         $mahasiswa->jurusan = $request->get('jurusan');
-        $mahasiswa->save();
+        // $mahasiswa->save();
 
         $kelas = new Kelas;
-        $kelas->id = $request->get('Kelas');
+        $kelas->id = $request->get('kelas');
 
         // Fungsi eloquent untuk menambah data dengan relasi belongsTo
         $mahasiswa->kelas()->associate($kelas);

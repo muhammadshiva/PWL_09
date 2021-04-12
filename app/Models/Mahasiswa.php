@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Mahasiswa;
 
 class Mahasiswa extends Model{
-    protected $table="mahasiswa"; // Eloquent akan membuat model mahasiswa menyimpan record di table mahasiswa
+    protected $table = "mahasiswa"; // Eloquent akan membuat model mahasiswa menyimpan record di table mahasiswa
     protected $primaryKey = 'nim'; // Memanggil isi DB dengan primary key
     
     /**
@@ -19,7 +19,7 @@ class Mahasiswa extends Model{
         'nim',
         'nama',
         'kelas_id',
-        'jurusan',
+        'jurusan'
     ];
 
     public function kelas(){
